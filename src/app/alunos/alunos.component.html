@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <h2>Cadastrar aluno</h2>
+                <form>
+                    <p>Nome: <input type="text" name="name"[(ngModel)]="aluno.nome"></p>
+                <p>Idade:<input type="text" name="idade"[(ngModel)]="aluno.idade"></p>
+                <p>Nota: <input type="text" name="nota"[(ngModel)]="aluno.nota"></p>
+                        <button type="button" (click) = cadastrar()>Cadastrar</button>
+                </form>
+        </div>
+        <div class="right">
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Nota</th>
+                <th colspan="2">Ações</th>
+            </tr>
+            <tr *ngFor="let aluno of alunos">
+                <td>{{aluno.id}}</td>
+                <td>{{aluno.nome}}</td>
+                <td>{{aluno.idade}}</td>
+                <td>{{aluno.nota}}</td>
+                <td><button (click)="atualizar(aluno.id)">Atualizar</button></td>
+                <td><button id="remover" (click)="remover(aluno.id)">Remover</button></td>
+            </tr>
+        </table>
+        </div>
+    </div>
+</body>
+</html>
+
